@@ -40,11 +40,9 @@ namespace BandTracker
        Venue testVenue = new Venue("Cool Venue");
        testVenue.Save();
 
-       Venue testVenue2 = new Venue("Cooler Venue");
-
        //Act
        List<Venue> result = Venue.GetAll();
-       List<Venue> testList = new List<Venue>{testVenue2};
+       List<Venue> testList = new List<Venue>{testVenue};
 
        //Assert
        Assert.Equal(testList, result);
