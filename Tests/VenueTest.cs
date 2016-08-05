@@ -93,14 +93,11 @@ namespace BandTracker
       //Arrange
       Venue testVenue = new Venue("Bien Venue");
       testVenue.Save();
-
-      Venue testVenue2 = new Venue("Mal Venue");
-      testVenue2.Save();
       //Act
       int testId = testVenue.GetId();
       Venue foundVenue = Venue.Find(testId);
       //Assert
-      Assert.Equal(testVenue2.GetName(), foundVenue.GetName());
+      Assert.Equal(testVenue.GetName(), foundVenue.GetName());
     }
 
     public void Dispose()
