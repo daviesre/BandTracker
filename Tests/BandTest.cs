@@ -20,7 +20,18 @@ namespace BandTracker
       // Arrange, Act
       int result = Band.GetAll().Count;
       // Assert
-      Assert.Equal(1, result);
+      Assert.Equal(0, result);
+    }
+
+    [Fact]
+    public void Test_EqualOverrideTrueForSameName()
+    {
+      //Arrange, Act
+      Band firstBand = new Band("Best Band");
+      Band secondBand = new Band("Best Bands");
+
+      //Assert
+      Assert.Equal(firstBand, secondBand);
     }
 
     public void Dispose()
