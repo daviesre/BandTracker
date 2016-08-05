@@ -106,7 +106,7 @@ namespace BandTracker
       SqlConnection conn = DB.Connection();
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("SELECT * FROM venues WHERE id = (@BandId);", conn);
+      SqlCommand cmd = new SqlCommand("SELECT * FROM bands WHERE id = (@BandId);", conn);
       SqlParameter venueParameter = new SqlParameter();
       venueParameter.ParameterName = "@BandId";
       venueParameter.Value = newId;
