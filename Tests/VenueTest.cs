@@ -47,6 +47,7 @@ namespace BandTracker
        //Assert
        Assert.Equal(testList, result);
      }
+
      [Fact]
      public void Test_GetAll_GetsAllVenuesFromDatabase()
      {
@@ -63,6 +64,27 @@ namespace BandTracker
       List<Venue> resultVenues = Venue.GetAll();
       //Assert
       Assert.Equal(testVenues.Count, resultVenues.Count);
+     }
+
+     [Fact]
+     public void Test_Delete_DeletesVenueFromDatabase()
+     {
+       //Arrange
+       string name1 = "Das Venue";
+       Venue testVenue1 = new Venue(name1);
+       testVenue1.Save();
+       string name2 = "Der Venue";
+       Venue testVenue2 = new Venue(name2);
+       testVenue2.Save();
+
+       List<Venue> testVenue = new List<Venue> {};
+       //Act
+       testVenue1.Delete();
+       
+       List<Venue> resultVenue = Venue.GetAll();
+
+       //Assert
+       Assert.Equal(testVenue, resultVenue);
      }
 
     public void Dispose()
