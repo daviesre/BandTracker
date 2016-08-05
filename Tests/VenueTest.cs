@@ -154,7 +154,6 @@ namespace BandTracker
       List<Band> resultVenueBands = newVenue.GetBands();
       //Assert
       Assert.Equal(testVenueBands.Count, resultVenueBands.Count);
-
     }
 
     public void Dispose()

@@ -204,7 +204,7 @@ namespace BandTracker
     }
 
     public List<Band> GetBands()
-   {
+    {
      SqlConnection conn = DB.Connection();
      conn.Open();
 
@@ -233,7 +233,7 @@ namespace BandTracker
        conn.Close();
      }
      return bands;
-   }
+    }
 
     public static void DeleteAll()
     {
