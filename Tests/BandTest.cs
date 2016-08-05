@@ -28,7 +28,7 @@ namespace BandTracker
     {
       //Arrange, Act
       Band firstBand = new Band("Best Band");
-      Band secondBand = new Band("Best Bands");
+      Band secondBand = new Band("Best Band");
 
       //Assert
       Assert.Equal(firstBand, secondBand);
