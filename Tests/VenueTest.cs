@@ -131,7 +131,7 @@ namespace BandTracker
      testBand2.Save();
      //Act
      List<Band> resultList = new List<Band>{};
-     resultList.Add(testBand2);
+     resultList.Add(testBand1);
      List<Band> testList = new List<Band>{testBand1};
      //Assert
      Assert.Equal(testList, resultList);
