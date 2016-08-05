@@ -58,10 +58,7 @@ namespace BandTracker
       Venue testVenue2 = new Venue(name2);
       testVenue2.Save();
 
-      string name3 = "Eunev Eht 2";
-      Venue testVenue3 = new Venue(name3);
-      testVenue3.Save();
-      List<Venue> testVenues = new List<Venue> {testVenue1, testVenue3};
+      List<Venue> testVenues = new List<Venue> {testVenue1, testVenue2};
       //Act
       List<Venue> resultVenues = Venue.GetAll();
       //Assert
