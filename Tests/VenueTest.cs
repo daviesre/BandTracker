@@ -27,7 +27,7 @@ namespace BandTracker
     {
       //Arrange, Act
       Venue firstVenue = new Venue("Best Place Ever");
-      Venue secondVenue = new Venue("Best Place Evers");
+      Venue secondVenue = new Venue("Best Place Ever");
 
       //Assert
       Assert.Equal(firstVenue, secondVenue);
