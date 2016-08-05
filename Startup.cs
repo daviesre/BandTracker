@@ -6,7 +6,7 @@ using Nancy.Owin;
 using Nancy.ViewEngines.Razor;
 
 
-namespace University
+namespace BandTracker
 
 {
   public class Startup
