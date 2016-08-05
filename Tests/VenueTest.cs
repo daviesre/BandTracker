@@ -97,7 +97,7 @@ namespace BandTracker
       string newName = "Venue Dos";
 
       //Act
-      testVenue.Update(name);
+      testVenue.Update(newName);
 
       string result = testVenue.GetName();
 
