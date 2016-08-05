@@ -104,19 +104,20 @@ namespace BandTracker
     public void Test_GetVenues_GetsAllVenuesInThisBand()
     {
       //Arrange
-      Band newBand = new Band("La Venue");
+      Band newBand = new Band("Bandito");
       newBand.Save();
       Venue name1Venue = new Venue("Ima Venue");
       name1Venue.Save();
-      Venue name2Venue = new Venue("Nancy Razor");
+      Venue name2Venue = new Venue("Yura Venue");
       name2Venue.Save();
+
       newBand.AddVenue(name1Venue);
       newBand.AddVenue(name2Venue);
       List<Venue> testBandVenues = new List<Venue> {name1Venue, name2Venue};
       //Act
       List<Venue> resultBandVenues = newBand.GetVenues();
       //Assert
-      Assert.Equal(testBandVenues.Count, resultBandVenues.Count);
+      Assert.Equal(testBandVenues, resultBandVenues);
     }
 
     public void Dispose()
