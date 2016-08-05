@@ -41,8 +41,6 @@ namespace BandTracker
       Band testBand = new Band("Tres Cool Band");
       testBand.Save();
 
-      Band testBand2 = new Band("Tres Cool Band");
-      testBand2.Save();
       //Act
       List<Band> result = Band.GetAll();
       List<Band> testList = new List<Band>{testBand};
