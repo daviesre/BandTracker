@@ -80,7 +80,7 @@ namespace BandTracker
        List<Venue> testVenue = new List<Venue> {};
        //Act
        testVenue1.Delete();
-       
+       testVenue2.Delete();
        List<Venue> resultVenue = Venue.GetAll();
 
        //Assert
