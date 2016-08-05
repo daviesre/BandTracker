@@ -22,6 +22,32 @@ namespace BandTracker
       Assert.Equal(0, result);
     }
 
+    [Fact]
+    public void Test_EqualOverrideTrueForSameName()
+    {
+      //Arrange, Act
+      Venue firstVenue = new Venue("Best Place Ever");
+      Venue secondVenue = new Venue("Best Place Evers");
+
+      //Assert
+      Assert.Equal(firstVenue, secondVenue);
+    }
+
+    [Fact]
+     public void Test_Save()
+     {
+       //Arrange
+       Venue testVenue = new Venue("Cool Venue");
+       testVenue.Save();
+
+       //Act
+       List<Venue> result = Venue.GetAll();
+       List<Venue> testList = new List<Venue>{testVenue};
+
+       //Assert
+       Assert.Equal(testList, result);
+     }
+
     public void Dispose()
     {
       Venue.DeleteAll();
