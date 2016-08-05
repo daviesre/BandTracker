@@ -63,9 +63,22 @@ namespace BandTracker
 
       //Act
       List<Band> resultBands = Band.GetAll();
-      
+
       //Assert
       Assert.Equal(testBands.Count, resultBands.Count);
+    }
+
+    [Fact]
+    public void Test_Find_FindsBandInDatabase()
+    {
+      //Arrange
+      Band testBand = new Band("Rabbit Band");
+      testBand.Save();
+      //Act
+      int testId = testBand.GetId();
+      Band foundBand = Band.Find(testId);
+      //Assert
+      Assert.Equal(testBand.GetName(), foundBand.GetName());
     }
 
     public void Dispose()

@@ -101,6 +101,30 @@ namespace BandTracker
       return allBands;
     }
 
+    public static Band Find(int newId)
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("SELECT * FROM venues WHERE id = (@BandId);", conn);
+      SqlParameter venueParameter = new SqlParameter();
+      venueParameter.ParameterName = "@BandId";
+      venueParameter.Value = newId;
+      cmd.Parameters.Add(venueParameter);
+
+      SqlDataReader rdr = cmd.ExecuteReader();
+      int id = 0;
+      string name = null;
+
+      while(rdr.Read())
+      {
+        id = rdr.GetInt32(0);
+        name = rdr.GetString(1);
+      }
+      Band foundBand = new Band(name, id);
+      return foundBand;
+    }
+
     public static void DeleteAll()
     {
       SqlConnection conn = DB.Connection();
