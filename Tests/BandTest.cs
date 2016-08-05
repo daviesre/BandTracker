@@ -59,14 +59,11 @@ namespace BandTracker
       string name2 = "New Band";
       Band testBand2 = new Band(name2);
       testBand2.Save();
-      string name3 = "False Band";
-      Band testBand3 = new Band(name3);
-      testBand2.Save();
-
-
       List<Band> testBands = new List<Band> {testBand1, testBand2};
+
       //Act
       List<Band> resultBands = Band.GetAll();
+      
       //Assert
       Assert.Equal(testBands.Count, resultBands.Count);
     }
