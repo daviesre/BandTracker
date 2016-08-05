@@ -34,23 +34,23 @@ namespace BandTracker
     }
 
     [Fact]
-     public void Test_Save()
-     {
-       //Arrange
-       Venue testVenue = new Venue("Cool Venue");
-       testVenue.Save();
+    public void Test_Save()
+    {
+      //Arrange
+      Venue testVenue = new Venue("Cool Venue");
+      testVenue.Save();
 
-       //Act
-       List<Venue> result = Venue.GetAll();
-       List<Venue> testList = new List<Venue>{testVenue};
+      //Act
+      List<Venue> result = Venue.GetAll();
+      List<Venue> testList = new List<Venue>{testVenue};
 
-       //Assert
-       Assert.Equal(testList, result);
-     }
+      //Assert
+      Assert.Equal(testList, result);
+    }
 
-     [Fact]
-     public void Test_GetAll_GetsAllVenuesFromDatabase()
-     {
+    [Fact]
+    public void Test_GetAll_GetsAllVenuesFromDatabase()
+    {
       //Arrange
       string name1 = "The Venue";
       Venue testVenue1 = new Venue(name1);
@@ -64,28 +64,44 @@ namespace BandTracker
       List<Venue> resultVenues = Venue.GetAll();
       //Assert
       Assert.Equal(testVenues.Count, resultVenues.Count);
-     }
+    }
 
-     [Fact]
-     public void Test_Delete_DeletesVenueFromDatabase()
-     {
-       //Arrange
-       string name1 = "Das Venue";
-       Venue testVenue1 = new Venue(name1);
-       testVenue1.Save();
-       string name2 = "Der Venue";
-       Venue testVenue2 = new Venue(name2);
-       testVenue2.Save();
+    [Fact]
+    public void Test_Delete_DeletesVenueFromDatabase()
+    {
+      //Arrange
+      string name1 = "Das Venue";
+      Venue testVenue1 = new Venue(name1);
+      testVenue1.Save();
+      string name2 = "Der Venue";
+      Venue testVenue2 = new Venue(name2);
+      testVenue2.Save();
 
-       List<Venue> testVenue = new List<Venue> {};
-       //Act
-       testVenue1.Delete();
-       testVenue2.Delete();
-       List<Venue> resultVenue = Venue.GetAll();
+      List<Venue> testVenue = new List<Venue> {};
+      //Act
+      testVenue1.Delete();
+      testVenue2.Delete();
+      List<Venue> resultVenue = Venue.GetAll();
 
-       //Assert
-       Assert.Equal(testVenue, resultVenue);
-     }
+      //Assert
+      Assert.Equal(testVenue, resultVenue);
+    }
+
+    [Fact]
+    public void Test_Find_FindsVenueInDatabase()
+    {
+      //Arrange
+      Venue testVenue = new Venue("Bien Venue");
+      testVenue.Save();
+
+      Venue testVenue2 = new Venue("Mal Venue");
+      testVenue2.Save();
+      //Act
+      int testId = testVenue.GetId();
+      Venue foundVenue = Venue.Find(testId);
+      //Assert
+      Assert.Equal(testVenue2.GetName(), foundVenue.GetName());
+    }
 
     public void Dispose()
     {

@@ -109,17 +109,41 @@ namespace BandTracker
 
       SqlCommand cmd = new SqlCommand("DELETE FROM venues WHERE id = @VenueId;", conn);
 
-      SqlParameter courseIdParameter = new SqlParameter();
-      courseIdParameter.ParameterName = "@VenueId";
-      courseIdParameter.Value = this.GetId();
+      SqlParameter venueIdParameter = new SqlParameter();
+      venueIdParameter.ParameterName = "@VenueId";
+      venueIdParameter.Value = this.GetId();
 
-      cmd.Parameters.Add(courseIdParameter);
+      cmd.Parameters.Add(venueIdParameter);
       cmd.ExecuteNonQuery();
 
       if (conn != null)
       {
        conn.Close();
       }
+    }
+
+    public static Venue Find(int newId)
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("SELECT * FROM venues WHERE id = (@VenueId);", conn);
+      SqlParameter venueParameter = new SqlParameter();
+      venueParameter.ParameterName = "@VenueId";
+      venueParameter.Value = newId;
+      cmd.Parameters.Add(venueParameter);
+
+      SqlDataReader rdr = cmd.ExecuteReader();
+      int id = 0;
+      string name = null;
+
+      while(rdr.Read())
+      {
+        id = rdr.GetInt32(0);
+        name = rdr.GetString(1);
+      }
+      Venue foundVenue = new Venue(name, id);
+      return foundVenue;
     }
 
     public static void DeleteAll()
