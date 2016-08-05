@@ -88,6 +88,24 @@ namespace BandTracker
     }
 
     [Fact]
+    public void Test_Update_UpdatesVenueInDatabase()
+    {
+      //Arrange
+      string name = "Venue Uno";
+      Venue testVenue = new Venue(name);
+      testVenue.Save();
+      string newName = "Venue Dos";
+
+      //Act
+      testVenue.Update(name);
+
+      string result = testVenue.GetName();
+
+      //Assert
+      Assert.Equal(newName, result);
+    }
+
+    [Fact]
     public void Test_Find_FindsVenueInDatabase()
     {
       //Arrange
