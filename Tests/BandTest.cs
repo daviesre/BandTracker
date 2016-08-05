@@ -20,7 +20,7 @@ namespace BandTracker
       // Arrange, Act
       int result = Band.GetAll().Count;
       // Assert
-      Assert.Equal(0, result);
+      Assert.Equal(1, result);
     }
 
     public void Dispose()
