@@ -147,12 +147,8 @@ namespace BandTracker
       name1Band.Save();
       Band name2Band = new Band("Nancy Razor");
       name2Band.Save();
-
-      Band name3Band = new Band("Nancy Razors");
-      name3Band.Save();
       newVenue.AddBand(name1Band);
       newVenue.AddBand(name2Band);
-      newVenue.AddBand(name3Band);
       List<Band> testVenueBands = new List<Band> {name1Band, name2Band};
       //Act
       List<Band> resultVenueBands = newVenue.GetBands();
