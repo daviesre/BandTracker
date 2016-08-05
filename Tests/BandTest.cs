@@ -34,6 +34,23 @@ namespace BandTracker
       Assert.Equal(firstBand, secondBand);
     }
 
+    [Fact]
+    public void Test_Save()
+    {
+      //Arrange
+      Band testBand = new Band("Tres Cool Band");
+      testBand.Save();
+
+      Band testBand2 = new Band("Tres Cool Band");
+      testBand2.Save();
+      //Act
+      List<Band> result = Band.GetAll();
+      List<Band> testList = new List<Band>{testBand};
+
+      //Assert
+      Assert.Equal(testList, result);
+    }
+
     public void Dispose()
     {
       Band.DeleteAll();
